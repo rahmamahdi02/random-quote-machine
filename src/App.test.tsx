@@ -1,44 +1,44 @@
-// import React from 'react';
-// import { render, fireEvent } from '@testing-library/react';
-// import App from './App';
+// QuoteBox.test.js
+import React from 'react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
+import QuoteBox from './quotecard';
 
-// // Mock fetch function
-// global.fetch = jest.fn(() =>
-//   Promise.resolve({
-//     ok: true,
-//     json: () =>
-//       Promise.resolve({
-//         quotes: [
-//           {
-//             quote: 'Test Quote',
-//           },
-//         ],
-//       }),
-//   })
-// );
+// Mocking fetch function
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    ok: true,
+    json: () =>
+      Promise.resolve({
+        quotes: [
+          {
+            text: 'Test Quote',
+            author: 'Test Author'
+          },
+        ],
+      }),
+  })
+);
 
-// test('clicking tweet button opens correct Twitter intent URL', async () => {
-//   // Render the component
-//   const { getByTestId } = render(<App />);
+test('renders quote and handles click events', async () => {
+  // Render the component
+  const { getByText, getByTestId } = render(<QuoteBox />);
 
-//   // Wait for the component to render with fetched data
-//   await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust timeout as needed
+  // Wait for initial quote fetch
+  await waitFor(() => expect(getByText('Test Quote')).toBeInTheDocument());
 
-//   // Spy on window.open method
-//   const openMock = jest.spyOn(window, 'open').mockImplementation(() => {});
+  // Simulate clicking the 'Change Quote' button
+  fireEvent.click(getByTestId('new-quote'));
 
-//   // Simulate clicking the tweet button
-//   fireEvent.click(getByTestId('tweet-button'));
+  // Assert that a new quote is fetched
+  await waitFor(() => expect(getByText('Test Quote')).toBeInTheDocument());
 
-//   // Log openMock calls to see what was passed
-//   console.log('Calls to window.open:', openMock.mock.calls);
+  // Simulate clicking the 'Tweet Now' button
+  fireEvent.click(getByTestId('tweet-button'));
 
-//   // Assert that window.open is called with the correct Twitter URL
-//   expect(openMock).toHaveBeenCalledWith(
-//     'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=Test%20Quote',
-//     '_blank'
-//   );
+  // Assert that the correct Twitter intent URL is generated
+  expect(window.open).toHaveBeenCalledWith(
+    'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=Test%20Quote',
+    '_blank'
+  );
+});
 
-//   // Restore original method after test
-//   openMock.mockRestore();
-// });
