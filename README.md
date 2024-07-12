@@ -1,14 +1,15 @@
 # Random Quote Machine
 
-## Table of Contents
-
-- [Built With](#Built-With)
-- [Features](#Features)
-- [Lessons Leared](#Lessons)
-
-## Built-With 
+## About 
 
 Built using TypeScript & Vite, this application makes it easy for users to generates random quotes to quickly tweet to their audience on X. With just a click of a button, users can share new insights and wisdom from an arry of thought leaders.
+
+
+## Table of Contents
+
+- [Features](#Features)
+- [Lessons Learned](#Lessons)
+- [Built With](#Built-With)
 
 
 ### Features:
@@ -25,9 +26,9 @@ Built using TypeScript & Vite, this application makes it easy for users to gener
 
 
 
-### Technologies Used:
+### Built-With:
 
-- TypeScript, React Icon Library, Jest, React Testing Library, Vite 
+- TypeScript, React Icon Library, Jest, React Testing Library, Vite, Javascript, HTML, CSS
 
 ### Demo:  
 - coming soon
