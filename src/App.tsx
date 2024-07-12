@@ -30,15 +30,19 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {quote && (
-        <>
-          <p>{quote.quote}</p>
-          <p>- {quote.author}</p>
-        </>
-      )}
+    <div> 
+      <div className="App">
+        {quote && (
+          <>
+            <h2 id="text">{quote.quote}</h2>
+            <h4 id="author">- {quote.author}</h4>
+          </>
+        )}
+      </div>
     </div>
   );
+  
+  
 }
 
 export default App;
