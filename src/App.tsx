@@ -42,7 +42,7 @@ function App({ randomColor, changeQuote, transition }) {
               <FaQuoteLeft size="20" style={{ marginRight: "10px" }} />
               <h2 id="text">{currentQuote.quote}</h2>
               <FaQuoteRight size="20" style={{ marginLeft: "10px" }} />
-              <h4 id="author">{currentQuote.author}</h4>
+              <h4 id="author">- {currentQuote.author}</h4>
             </div>
             <div className="buttons">
               <a
