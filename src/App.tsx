@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { FaTwitter, FaQuoteLeft, FaQuoteRight } from "react-icons/fa"; 
 import './App.css';
+import Quote from './quotecard';
 
-interface Quote {
+interface QuoteData {
   quote: string;
   author: string;
 }
 
-function App({ randomColor, changeQuote, transition }) {
-  const [currentQuote, setCurrentQuote] = useState<Quote | null>(null);
+const App: React.FC = () => {
+  const [currentQuote, setCurrentQuote] = useState<QuoteData | null>(null);
+  const [randomColor, setRandomColor] = useState("#000000");
+  const transition = 'background-color 1s';
 
   useEffect(() => {
     fetchRandomQuote();
@@ -31,41 +33,17 @@ function App({ randomColor, changeQuote, transition }) {
     }
   };
 
-  return  (
-    <div className="App">
+  return (
+    <div className="App" style={{ backgroundColor: randomColor, transition }}>
       <div className="container">
-      
         {currentQuote && (
-          <div id="quote-box">
-            <h1 style={{ color: 'white', marginBottom: '20px', textAlign: 'center'}}>Generate Your Next Tweet </h1>
-            <div className="quote-content"> 
-              <FaQuoteLeft size="20" style={{ marginRight: "10px" }} />
-              <h2 id="text">{currentQuote.quote}</h2>
-              <FaQuoteRight size="20" style={{ marginLeft: "10px" }} />
-              <h4 id="author">- {currentQuote.author}</h4>
-            </div>
-            <div className="buttons">
-              <a
-                href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(currentQuote.quote)}`}
-                id="tweet-quote"
-                style={{
-                  backgroundColor: randomColor,
-                  marginRight: "10px",
-                  transition,
-                }}
-              >
-                <FaTwitter color="white" />
-              </a>
-
-               <button
-                id="new-quote"
-                onClick={fetchRandomQuote}
-                style={{ backgroundColor: randomColor, color: 'black', transition: 'background-color 1s' }}
-              >
-                Change Quote
-              </button>
-            </div>
-          </div>
+          <Quote
+            quote={currentQuote.quote}
+            author={currentQuote.author}
+            randomColor={randomColor}
+            transition={transition}
+            fetchRandomQuote={fetchRandomQuote}
+          />
         )}
       </div>
     </div>
@@ -73,3 +51,4 @@ function App({ randomColor, changeQuote, transition }) {
 }
 
 export default App;
+
