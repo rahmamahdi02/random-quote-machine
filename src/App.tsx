@@ -53,13 +53,11 @@ function App({ randomColor, changeQuote, transition }) {
               >
                 <FaTwitter color="white" />
               </a>
-              <button
+
+               <button
                 id="new-quote"
-                onClick={() => {
-                  changeQuote();
-                  fetchRandomQuote();
-                }}
-                style={{ backgroundColor: randomColor, transition }}
+                onClick={fetchRandomQuote}
+                style={{ backgroundColor: randomColor, transition: 'background-color 1s' }}
               >
                 Change Quote
               </button>
