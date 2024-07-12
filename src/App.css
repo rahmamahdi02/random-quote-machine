@@ -1,12 +1,12 @@
 .container {
-  margin : 0;
-  display : flex;
+  margin: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-#quote-box{
+#quote-box {
   width: 500px;
   margin: 0 auto;
   min-height: 300px;
@@ -21,13 +21,34 @@
 }
 
 .quote-content {
-  height: 220 px;
-  display : flex;
-  flex-direction : column;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  margin : 10px;
+  margin: 10px;
 }
 
 #author {
   text-align: right;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#tweet-quote, #new-quote {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+#tweet-quote {
+  display: flex;
+  align-items: center;
 }

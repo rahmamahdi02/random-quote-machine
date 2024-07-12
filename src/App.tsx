@@ -7,8 +7,8 @@ interface Quote {
   author: string;
 }
 
-function App() {
-  const [quote, setQuote] = useState<Quote | null>(null);
+function App({ randomColor, changeQuote, transition }) {
+  const [currentQuote, setCurrentQuote] = useState<Quote | null>(null);
 
   useEffect(() => {
     fetchRandomQuote();
@@ -24,7 +24,7 @@ function App() {
       }
       const data = await response.json();
       const randomQuote = data.quotes[Math.floor(Math.random() * data.quotes.length)];
-      setQuote(randomQuote);
+      setCurrentQuote(randomQuote);
     } catch (error) {
       console.error('Error fetching random quote:', error);
     }
@@ -33,21 +33,42 @@ function App() {
   return  (
     <div className="App">
       <div className="container">
-        {quote && (
+        {currentQuote && (
           <div id="quote-box">
             <div className="quote-content">
               <FaQuoteLeft size="20" style={{ marginRight: "10px" }} />
-              <h2 id="text">{quote.quote}</h2>
+              <h2 id="text">{currentQuote.quote}</h2>
               <FaQuoteRight size="20" style={{ marginLeft: "10px" }} />
-              <h4 id="author">{quote.author}</h4>
+              <h4 id="author">{currentQuote.author}</h4>
+            </div>
+            <div className="buttons">
+              <a
+                href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(currentQuote.quote)}`}
+                id="tweet-quote"
+                style={{
+                  backgroundColor: randomColor,
+                  marginRight: "10px",
+                  transition,
+                }}
+              >
+                <FaTwitter color="white" />
+              </a>
+              <button
+                id="new-quote"
+                onClick={() => {
+                  changeQuote();
+                  fetchRandomQuote();
+                }}
+                style={{ backgroundColor: randomColor, transition }}
+              >
+                Change Quote
+              </button>
             </div>
           </div>
         )}
       </div>
     </div>
   );
-  
-  
 }
 
 export default App;
