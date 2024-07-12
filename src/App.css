@@ -1,3 +1,6 @@
+/*Uniqueness: IDs (#) must be unique within the HTML document, whereas classes (.) can be applied to multiple elements.
+Selector Specificity: IDs have higher specificity in CSS than classes. This means styles applied using IDs will typically override styles applied using classes or other selectors.*/
+
 .container {
   margin: 0;
   display: flex;
