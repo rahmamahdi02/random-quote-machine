@@ -31,7 +31,7 @@ Built using TypeScript & Vite, this application makes it easy for users to gener
 - TypeScript, React Icon Library, Jest, React Testing Library, Vite, Javascript, HTML, CSS
 
 ### Demo:  
-- coming soon
+- https://hilarious-phoenix-c4b24e.netlify.app/
 
 
 ### Lessons Learned:
