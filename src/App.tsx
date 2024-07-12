@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaTwitter, FaQuoteLeft, FaQuoteRight } from "react-icons/fa"; 
 import './App.css';
 
 interface Quote {
@@ -29,13 +30,15 @@ function App() {
     }
   };
 
-  return (
+  return  (
     <div> 
       <div className="App">
         {quote && (
           <>
+          <FaQuoteLeft size ="30" style={{ marginRight : "10 px"}} />
             <h2 id="text">{quote.quote}</h2>
-            <h4 id="author">- {quote.author}</h4>
+            <FaQuoteRight size ="30" style={{ marginLeft : "10 px"}} />
+            <h4 id="author"> {quote.author}</h4>
           </>
         )}
       </div>
