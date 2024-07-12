@@ -29,7 +29,8 @@ Built using TypeScript & Vite, this application makes it easy for users to gener
 
 - TypeScript, React Icon Library, Jest, React Testing Library, Vite 
 
-### Demo: //coming soon
+### Demo:  
+- coming soon
 
 
 ### Lessons Learned:
