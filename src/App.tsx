@@ -60,7 +60,7 @@ function App({ randomColor, changeQuote, transition }) {
                <button
                 id="new-quote"
                 onClick={fetchRandomQuote}
-                style={{ backgroundColor: randomColor, transition: 'background-color 1s' }}
+                style={{ backgroundColor: randomColor, color: 'black', transition: 'background-color 1s' }}
               >
                 Change Quote
               </button>
