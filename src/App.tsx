@@ -33,14 +33,16 @@ function App() {
   return  (
     <div> 
       <div className="App">
+      <div className="container">
         {quote && (
           <>
-          <FaQuoteLeft size ="30" style={{ marginRight : "10 px"}} />
+          <FaQuoteLeft size ="20" style={{ marginRight : "10 px"}} />
             <h2 id="text">{quote.quote}</h2>
-            <FaQuoteRight size ="30" style={{ marginLeft : "10 px"}} />
+            <FaQuoteRight size ="20" style={{ marginLeft : "10 px"}} />
             <h4 id="author"> {quote.author}</h4>
           </>
         )}
+        </div>
       </div>
     </div>
   );
