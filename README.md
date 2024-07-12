@@ -1,7 +1,5 @@
 # Random Quote Machine
 
-<img src="https://github.com/rahmamahdi02/random-quote-machine/blob/main/src/assets/site.png" />
-
 ## Table of Contents
 
 - [Built With](#Built-With)
@@ -15,13 +13,16 @@ Built using TypeScript & Vite, this application makes it easy for users to gener
 
 ### Features:
 - **Random Quote Machine:** Generate a new quote with each click, sourced from a curated collection of inspirational quotes.
-- **Share Functionality:** Share your favorite quotes instantly with friends and family via social media platforms.
 <img src="https://github.com/rahmamahdi02/random-quote-machine/blob/main/src/assets/colorchange.png" />
+
+- **Share Functionality:** Share your favorite quotes instantly with friends and family via social media platforms.
+<img src="https://github.com/rahmamahdi02/random-quote-machine/blob/main/src/assets/socialmedia.png" />
 
 
 - **Simple and Intuitive UI:**  Smooth Color transition, visual scalability for a clean and user-friendly interface designed for seamless navigation and interaction.
 
-<img src="https://github.com/rahmamahdi02/random-quote-machine/blob/main/src/assets/socialmedia.png" />
+<img src="https://github.com/rahmamahdi02/random-quote-machine/blob/main/src/assets/site.png" />
+
 
 
 ### Technologies Used:
