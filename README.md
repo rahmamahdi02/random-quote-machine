@@ -1,6 +1,8 @@
 # Random Quote Machine
 
-![site image](site.png)
+<img src="https://github.com/rahmamahdi02/random-quote-machine/blob/main/src/assets/site.png" />
+
+
 
 
 Built using TypeScript & Vite, this application makes it easy for users to generates random quotes to quickly tweet to their audienc on X. With just a click of a button, users can share new insights and wisdom from an arry of thought leaders.
