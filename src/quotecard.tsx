@@ -29,7 +29,7 @@ const Quote: React.FC<QuoteProps> = ({ quote, author, randomColor, transition, f
             transition,
           }}
         >
-        <span style={{ marginRight: '5px' }}>Tweet Now</span> {/* Adjust margin as needed */}
+        <span style={{ marginRight: '5px' }}>Tweet Now</span> 
           <FaTwitter color="white" />
         </a>
         <button
