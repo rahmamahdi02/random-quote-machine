@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface Quote {
+  quote: string;
+  author: string;
 }
 
-export default App
+function App() {
+  const [quote, setQuote] = useState<Quote | null>(null);
+
+  useEffect(() => {
+    fetchRandomQuote();
+  }, []); // Empty dependency array ensures this effect runs only once on component mount
+
+  const fetchRandomQuote = async () => {
+    const url = 'https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json';
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      const randomQuote = data.quotes[Math.floor(Math.random() * data.quotes.length)];
+      setQuote(randomQuote);
+    } catch (error) {
+      console.error('Error fetching random quote:', error);
+    }
+  };
+
+  return (
+    <div className="App">
+      {quote && (
+        <>
+          <p>{quote.quote}</p>
+          <p>- {quote.author}</p>
+        </>
+      )}
+    </div>
+  );
+}
+
+export default App;
