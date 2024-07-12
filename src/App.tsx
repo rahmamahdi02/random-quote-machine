@@ -25,6 +25,7 @@ function App({ randomColor, changeQuote, transition }) {
       const data = await response.json();
       const randomQuote = data.quotes[Math.floor(Math.random() * data.quotes.length)];
       setCurrentQuote(randomQuote);
+      setRandomColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
     } catch (error) {
       console.error('Error fetching random quote:', error);
     }
@@ -33,9 +34,11 @@ function App({ randomColor, changeQuote, transition }) {
   return  (
     <div className="App">
       <div className="container">
+      
         {currentQuote && (
           <div id="quote-box">
-            <div className="quote-content">
+            <h1 style={{ color: 'white', marginBottom: '20px', textAlign: 'center'}}>Generate Your Next Tweet </h1>
+            <div className="quote-content"> 
               <FaQuoteLeft size="20" style={{ marginRight: "10px" }} />
               <h2 id="text">{currentQuote.quote}</h2>
               <FaQuoteRight size="20" style={{ marginLeft: "10px" }} />
